@@ -19,6 +19,7 @@ function TodoList(props) {
                    key={todo.id}
                    completed={todo.completed}
                    removeTodo={props.removeTodo}
+                   toggleTodo={props.toggleTodo}
                 />
 
             <Divider/>
