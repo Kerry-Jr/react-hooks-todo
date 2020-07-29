@@ -6,11 +6,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import Todo from "./Todo";
 
-function TodoList(props) {
+function TodoList({ todos, removeTodo, toggleTodo, editTodo}) {
   return (
      <Paper>
        <List>
-         {props.todos.map(todo => (
+         {todos.map((todo, idx) => (
             <>
 
                 <Todo
@@ -18,11 +18,12 @@ function TodoList(props) {
                    task={todo.task}
                    key={todo.id}
                    completed={todo.completed}
-                   removeTodo={props.removeTodo}
-                   toggleTodo={props.toggleTodo}
+                   removeTodo={removeTodo}
+                   toggleTodo={toggleTodo}
+                   editTodo={editTodo}
                 />
 
-            <Divider/>
+                {idx < todos.length -1 &&<Divider/>}
             </>
          ))}
        </List>

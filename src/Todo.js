@@ -10,11 +10,15 @@ import EditIcon from '@material-ui/icons/Edit';
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 
-function Todo({task, completed, removeTodo, id, toggleTodo}) {
+function Todo({task, completed, removeTodo, id, toggleTodo, editTodo}) {
   const [isEditing, toggle] = useToggleState(false);
   return (
-     <ListItem>
-       {isEditing ? <EditTodoForm /> :
+     <ListItem style={{ height: "64px" }}>
+       {isEditing ? <EditTodoForm
+             editTodo={editTodo}
+             id={id} task={task}
+             toggleEditForm={toggle}
+          /> :
           <>
           <Checkbox
              tabIndex={-1}
