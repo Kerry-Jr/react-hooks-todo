@@ -12,11 +12,13 @@ import { uuid } from 'uuidv4';
 
 function TodoApp(){
 
-  const initialTodos = [
-     {id: 1, task: "Clean Fish tank", completed: false},
-     {id: 2, task: "Wash Car", completed: true},
-     {id: 3, task: "Grow beard", completed: false},
-  ];
+  const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]")
+
+  // const initialTodos = [
+  //    {id: 1, task: "Clean Fish tank", completed: false},
+  //    {id: 2, task: "Wash Car", completed: true},
+  //    {id: 3, task: "Grow beard", completed: false},
+  // ];
 
   const [todos, setTodos] = useState(initialTodos);
 
